@@ -5,26 +5,30 @@ export default function Header() {
   return (
     <header className={style.header}>
       <form className={style.form} action="">
-        <button>
-          <i class="bxr  bx-search"></i>{" "}
+        <button className={style["form__submit-btn"]}>
+          <i className="bxr  bx-search"></i>{" "}
         </button>
-        <input type="text" placeholder="Search.." />
+        <input
+          className={style["form__search-input"]}
+          type="text"
+          placeholder="Search.."
+        />
       </form>
       <div className={style["header-actions"]}>
-        <button>
-          <i class="bxr  bx-bell"></i> <span></span>
+        <button className={style["header-actions__btn"]}>
+          <i className="bxr  bx-bell"></i> <span></span>
         </button>
-        <button>
-          <i class="bxr  bx-message-bubble-reply"></i> <span></span>
+        <button className={style["header-actions__btn"]}>
+          <i className="bxr  bx-message-bubble-reply"></i> <span></span>
         </button>
       </div>
       <div className={style["header-user"]}>
-        <div>
+        <div className={style["header-user__img-container"]}>
           <img src={ProfileImage} alt="Profile image" />
         </div>
-        <p>Mihail</p>
-        <button>
-          <i class="bxr  bx-chevron-down"></i>
+        <p className={style["header-user__name"]}>Mihail</p>
+        <button className={style["header-user__show-menu"]}>
+          <i className="bxr  bx-chevron-down"></i>
         </button>
       </div>
     </header>
