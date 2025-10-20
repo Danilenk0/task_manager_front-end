@@ -1,7 +1,17 @@
 import "./App.css";
+import { Routes, Route } from "react-router-dom";
+import Header from "./components/Header";
+import TaskPage from "./pages/TaskPage";
 
 function App() {
-  return <h1> react project</h1>;
+  return (
+    <>
+      <Header />
+      <Routes>
+        <Route path="/" element={<TaskPage />} />
+      </Routes>
+    </>
+  );
 }
 
 export default App;
