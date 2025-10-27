@@ -1,0 +1,88 @@
+$containers-color: rgba(246, 246, 246, 1);
+
+@mixin user-info-grind-template {
+  display: grid;
+  column-gap: 20px;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: repeat(3, 25px);
+}
+
+@mixin container-scale {
+  transition: transform 0.2s ease-out;
+  &:hover {
+    transform: scale(1.03);
+  }
+}
+
+.container {
+  width: 95%;
+  margin: 0 auto;
+  padding-top: 35px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  .project-name {
+    font-size: 28px;
+  }
+  .project-info {
+    display: flex;
+    gap: 24px;
+    width: 100%;
+    &__card {
+      @include container-scale();
+      flex: auto;
+      border-radius: 17px;
+      background: $containers-color;
+      padding: 22px;
+    }
+    &__description {
+      font-weight: 300;
+    }
+    &__deadlines,
+    &__task-counter {
+      @include user-info-grind-template();
+      dd {
+        font-weight: 300;
+      }
+    }
+  }
+  .project-statusbar-container {
+    display: flex;
+    gap: 14px;
+    .project-statusbar {
+      @include container-scale();
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      border-radius: 17px;
+      height: min-content;
+      background-color: $containers-color;
+      padding: 22px;
+      &__header {
+        display: flex;
+        justify-content: space-between;
+        h4 {
+          font-size: 17px;
+          margin-bottom: 20px;
+        }
+        button {
+          border: none;
+          background-color: rgba(103, 203, 101, 1);
+          width: 24px;
+          height: 24px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: white;
+          margin: 2px;
+          transition: transform 0.2s ease-in-out;
+          &:hover {
+            transform: scale(1.3);
+          }
+        }
+      }
+    }
+  }
+}

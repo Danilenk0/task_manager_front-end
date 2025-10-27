@@ -1,0 +1,52 @@
+.task-container {
+  width: 100%;
+  height: min-content;
+  border-radius: 17px;
+  background-color: rgba(224, 228, 234, 1);
+  padding: 15px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    &__title {
+      font-size: 12px;
+      margin: 0;
+    }
+    &__status {
+      padding: 0px 9px;
+      border-radius: 14px;
+      font-size: 10px;
+      font-weight: 300;
+      &__status__medium {
+        background: rgba(255, 149, 51, 1);
+      }
+    }
+    &__status__low {
+      background: rgba(103, 203, 101, 1);
+    }
+
+    &__status__high {
+      background: rgba(231, 68, 68, 1);
+    }
+  }
+  &__content {
+    dl {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 20px 20px;
+      row-gap: 4px;
+      dt {
+        color: rgb(108, 108, 108);
+        font-weight: 400;
+        font-size: 14px;
+      }
+      dd {
+        font-weight: 300;
+        font-size: 12px;
+      }
+    }
+  }
+}
