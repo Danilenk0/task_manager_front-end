@@ -1,3 +1,5 @@
+@import "./variables";
+@import "./mixins";
 .header {
   padding: 20px 40px;
   display: flex;
@@ -56,6 +58,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
+  position: relative;
   .header-user__img-container {
     width: 44px;
     height: 44px;
@@ -68,11 +71,52 @@
     }
   }
   .header-user__show-menu {
+    @include basic-trasition;
     border: none;
     background-color: transparent;
     font-size: 1.2rem;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-left: 25px;
+    padding: 7px;
+    border-radius: 50%;
+    &:hover {
+      background-color: $second-dgcolor;
+    }
+  }
+  &__dropdown {
+    @include basic-trasition;
+    position: absolute;
+    top: 55px;
+    background-color: white;
+    width: 100%;
+    border-radius: 7px;
+    box-shadow: 1px 2px 11px 0px rgba(148, 148, 148, 0.25);
+    left: 100vh;
+    &__list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      li {
+        @include basic-trasition;
+        padding: 7px 23px;
+        font-weight: 400;
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        &:last-child {
+          margin-top: 40px;
+          font-weight: 500;
+          border-top: 1px solid $second-dgcolor;
+        }
+        &:hover {
+          background-color: rgb(241, 241, 241);
+        }
+      }
+    }
+  }
+  &__dropdown-show {
+    left: 0;
   }
 }

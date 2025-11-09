@@ -1,0 +1,24 @@
+@mixin block-scale {
+  transition: transform 0.2s ease-out;
+  &:hover {
+    transform: scale(1.03);
+  }
+}
+@mixin user-info-grid-template {
+  display: grid;
+  column-gap: 20px;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: repeat(3, 25px);
+}
+@mixin basic-list-template {
+  background-color: $first-bgcolor;
+  padding: 22px;
+  border-radius: 17px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  margin-top: 20px;
+}
+@mixin basic-trasition {
+  transition: all ease-out 0.3s;
+}

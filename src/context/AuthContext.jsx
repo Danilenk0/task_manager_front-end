@@ -45,6 +45,29 @@ export const AuthProvider = ({ children }) => {
       setIsLoading(false);
     }
   };
+  const authorization = async (email, password) => {
+    try {
+      const response = await axios.post("/user/authorization", {
+        email,
+        password,
+      });
+      setIsAuthenticated(true);
+      setUser(response.data.user);
+      navigate("/");
+    } catch (error) {
+      setError(error.message);
+    }
+  };
+  const logout = async () => {
+    try {
+      await axios.post("/user/logout");
+      setIsAuthenticated(false);
+      navigate("/authorization");
+      console.log("hello");
+    } catch (error) {
+      setError(error.message);
+    }
+  };
 
   const value = {
     user,
@@ -52,6 +75,8 @@ export const AuthProvider = ({ children }) => {
     isLoading,
     isAuthenticated,
     registration,
+    authorization,
+    logout,
   };
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
