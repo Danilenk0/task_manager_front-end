@@ -5,7 +5,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  &_form-container {
+  &__form-container {
     width: 50%;
     height: min-content;
     align-self: center;
@@ -22,26 +22,37 @@
       font-weight: 400;
       margin-bottom: 30px;
     }
-    &_form {
+    &__form {
       display: flex;
       flex-direction: column;
       gap: 16px;
       margin-bottom: 30px;
-      input {
-        font-size: 14px;
-        font-weight: 400;
-        color: black;
-        padding: 14px 26px;
+      &__form-group {
         border: 1px solid rgba(230, 230, 230, 1);
         border-radius: 10px;
+        padding: 14px 26px;
+        width: 100%;
+        display: flex;
+        align-items: center;
         &:focus {
           outline: none;
           border: 1px solid rgba(138, 192, 255, 1);
         }
+        input {
+          font-size: 14px;
+          font-weight: 400;
+          color: black;
+          width: 100%;
+          border: none;
+          outline: none;
+        }
+        i {
+          font-size: 22px;
+        }
       }
-      &_another-way {
+      &__another-way {
         margin-bottom: 20px;
-        &_line {
+        &__line {
           display: flex;
           align-items: center;
           gap: 10px;
@@ -65,7 +76,7 @@
             align-items: center;
           }
         }
-        &_button-group {
+        &__button-group {
           display: flex;
           justify-content: space-between;
           button {
@@ -80,7 +91,7 @@
           }
         }
       }
-      &_submit-button {
+      &__submit-button {
         border-radius: 8px;
         background: rgba(3, 102, 255, 1);
         font-size: 16px;
@@ -90,7 +101,7 @@
         color: white;
       }
     }
-    &_change-account {
+    &__change-account {
       display: flex;
       align-items: center;
       gap: 7px;

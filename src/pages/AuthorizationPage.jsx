@@ -7,10 +7,11 @@ const Authorization = () => {
   const { authorization } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isShowPassword, setIsShowPassword] = useState(false);
 
   return (
     <main className={style["main"]}>
-      <section className={style["main_form-container"]}>
+      <section className={style["main__form-container"]}>
         <h1>Authorization</h1>
         <p>Choose one of the option to go</p>
         <form
@@ -18,36 +19,49 @@ const Authorization = () => {
             e.preventDefault();
             authorization(email, password);
           }}
-          className={style["main_form-container_form"]}
+          className={style["main__form-container__form"]}
           action=""
         >
-          <input
-            value={email}
-            onChange={(e) => {
-              setEmail(e.target.value);
-            }}
-            type="text"
-            name="email"
-            placeholder="Email"
-          />
-          <input
-            value={password}
-            onChange={(e) => {
-              setPassword(e.target.value);
-            }}
-            type="text"
-            name="password"
-            placeholder="Password"
-          />
-          <div className={style["main_form-container_form_another-way"]}>
-            <div className={style["main_form-container_form_another-way_line"]}>
+          <div className={style["main__form-container__form__form-group"]}>
+            <input
+              value={email}
+              onChange={(e) => {
+                setEmail(e.target.value);
+              }}
+              type="text"
+              name="email"
+              placeholder="Email"
+            />
+          </div>
+          <div className={style["main__form-container__form__form-group"]}>
+            <input
+              value={password}
+              onChange={(e) => {
+                setPassword(e.target.value);
+              }}
+              type={`${isShowPassword ? "text" : "password"}`}
+              name="password"
+              placeholder="Password"
+            />
+            <i
+              onClick={() => {
+                setIsShowPassword((prev) => !prev);
+              }}
+              className={`bx  bx-eye${isShowPassword ? "-slash" : ""}`}
+            ></i>
+          </div>
+
+          <div className={style["main__form-container__form_another-way"]}>
+            <div
+              className={style["main__form-container__form__another-way__line"]}
+            >
               <hr />
               <p>Or continue with</p>
               <hr />
             </div>
             <div
               className={
-                style["main_form-container_form_another-way_button-group"]
+                style["main__form-container__form__another-way__button-group"]
               }
             >
               <button>
@@ -63,12 +77,12 @@ const Authorization = () => {
           </div>
           <button
             type="submit"
-            className={style["main_form-container_form_submit-button"]}
+            className={style["main__form-container__form__submit-button"]}
           >
             Sign In
           </button>
         </form>
-        <div className={style["main_form-container_change-account"]}>
+        <div className={style["main__form-container__change-account"]}>
           <p>Don't have account?</p> <Link to="/registration">Sign In</Link>
         </div>
       </section>
